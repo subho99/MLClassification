@@ -53,7 +53,8 @@ if choice == "Regression Modelling":
     if st.button('Run Modelling'): 
         setup(df, target=chosen_target, silent=True, use_gpu=True)
         setup_df = pull()
-        st.dataframe(setup_df)
+        setup_dftest = setup_df.astype(str)
+        st.dataframe(setup_dftest)
         best_model = compare_models()
         compare_df = pull()
         st.dataframe(compare_df)
