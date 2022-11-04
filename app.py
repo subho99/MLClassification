@@ -1,7 +1,7 @@
 #importing libraries for Streamlit, pycaret, pandas and pandas_profiling
 from operator import index
 import streamlit as st
-import plotly.express as px
+#import plotly.express as px
 import pickle
 
 import pandas_profiling
