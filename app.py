@@ -9,6 +9,8 @@ import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
 import os 
 
+os.environ['NUMEXPR_MAX_THREADS'] = '16'
+
 #Creating Global variable to have access to dataset throughout the app
 if os.path.exists('./dataset.csv'): 
     df = pd.read_csv('dataset.csv', index_col=None)
