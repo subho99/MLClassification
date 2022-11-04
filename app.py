@@ -3,7 +3,6 @@ from operator import index
 import streamlit as st
 import plotly.express as px
 import pickle
-
 import pandas_profiling
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
@@ -19,7 +18,7 @@ if os.path.exists('./dataset.csv'):
 with st.sidebar: 
     st.image("https://www.onepointltd.com/wp-content/uploads/2019/12/shutterstock_1166533285-Converted-03-1024x564.png")
     st.title("ML Training Model App")
-    choice = st.radio("Navigation", ["Upload","Profiling","Classification Modelling", "Regression Modelling", "Download", "View Model"])
+    choice = st.radio("Navigation", ["Upload","Profiling","Classification Modelling", "Regression Modelling", "Download", "View Classification Model", "View Regression Model"])
     st.info("This application helps you build a ML model using classification or regression techniques")
 
 #using the sidebar choices
@@ -65,7 +64,12 @@ if choice == "Download":
     with open('best_model.pkl', 'rb') as f: 
         st.download_button('Download Model', f, file_name="best_model.pkl")
         
-if choice == "View Model":
-        pipeline = load_model("best_model")
-        pipeline
-        
+if choice == "View Classification Model":
+    from pycaret.classification import load_model
+    pipeline = load_model("best_model")
+    pipeline
+
+if choice == "View Regression Model":
+    from pycaret.regression import load_model
+    pipeline = load_model("best_model")
+    pipeline 
