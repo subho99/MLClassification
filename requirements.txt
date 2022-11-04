@@ -1,0 +1,11 @@
+operator
+streamlit
+plotly.express
+pickle
+pandas_profiling
+pandas
+streamlit_pandas_profiling
+os
+pycaret.classification
+pycaret.regression
+pycaret
